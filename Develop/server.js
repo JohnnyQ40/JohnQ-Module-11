@@ -1,6 +1,7 @@
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
+const { v4: uuidv4 } = require('uuid');
 
 const PORT = 3001;
 const app = express();
@@ -30,7 +31,7 @@ app.get('/api/notes', (req, res) => {
 //POST Route for a new note
 app.post('/api/notes', (req, res) => {
     const newNote = req.body;
-    //note id
+    newNote.id = uuidv4();
 
     fs.readFile('./db/db.json', 'utf8', (err, data) => {
         if (err) throw err;

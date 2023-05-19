@@ -17,7 +17,7 @@ This is a Note Taker Application that allows users to create and name notes that
 to install the required dependencies, run the command: npm install
 
 ## Usage
-To use the Note Taker run the command: 'node server.js' then the application should be found at http://localhost:3001 .
+To use the Note Taker run the command: 'node server.js' then the application should be found at http://localhost:3001 . The + button allows users to create a new note where they can then name the note and fill in any information they want. A save icon will appear at the top which allows users to save the notes. Saved notes will appear on the left collumn. Users can click on saved notes to view previously created notes, and saved notes will have a trash icon on them which allows users to delete old/uneeded notes.
 
 ## License
 None

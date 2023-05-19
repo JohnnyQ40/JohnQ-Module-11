@@ -45,6 +45,23 @@ app.post('/api/notes', (req, res) => {
     });
 });
 
+//DELETE Route for an existing note
+app.delete('/api/notes/:id', (req, res) => {
+    const noteID = req.params.id;
+
+    fs.readFile('./db/db.json', 'utf8', (err, data) => {
+        if (err) throw err;
+        let allNotes = JSON.parse(data);
+
+        allNotes = allNotes.filter(note => note.id !== noteID);
+
+        fs.writeFile('./db/db.json', JSON.stringify(allNotes, null, 2), (err) => {
+            if (err) throw err;
+            res.sendStatus(200);
+        });
+    });
+});
+
 app.listen(PORT, () => 
     console.log(`App listening at http://localhost:${PORT}`)
 );
